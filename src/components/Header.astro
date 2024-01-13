@@ -1,0 +1,40 @@
+---
+import Icon from "@Shared/components/Icon.astro";
+---
+
+<header class="w-full fixed top-0 left-0 z-50">
+  <div class="flex flex-col justify-between items-center px-8 py-4 sm:flex-row 2xl:max-w-2xl">
+    <div class="flex items-center gap-2 w-full sm:w-auto font-medium text-2xl select-none cursor-pointer">    
+      <span class="text-5xl text-primary">
+        <Icon name="brand"/>
+      </span>
+      ASTRALY
+      <label class="flex ml-auto text-5xl text-primary cursor-pointer sm:hidden">
+        <input class="w-0 h-0" type="checkbox" id="menuStatus">
+        <Icon name="menu"/>
+      </label>
+    </div>
+    <nav class="w-full py-4 sm:p-0 sm:w-auto">
+      <ul class="flex flex-col sm:flex-row items-center gap-8 *:cursor-pointer">
+        <li>Servicios</li>
+        <li>Nosotros</li>
+        <li>Blog</li>
+        <li><button class="btn bg-primary">Contacto</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(20px);
+    background: linear-gradient(1turn,rgba(0,0,0,.5),rgba(0,0,0,.1));
+    z-index: -10;  
+  }
+</style>
