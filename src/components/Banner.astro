@@ -1,0 +1,33 @@
+---
+import Icon from "@Shared/components/Icon.astro";
+---
+
+<section class="flex flex-col items-center justify-center min-h-screen">
+  <figure class="brand absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10">
+    <Icon name="brand" />
+  </figure>
+  <span class="title leading-none tracking-widest font-light">ASTRALY</span>
+  <span class="sub-title">Innovación Digital Sin Límites</span>
+</section>
+
+<style>
+  .title {
+    font-size: clamp(2rem, 20vw, 15rem);
+  }
+
+  .sub-title {
+    font-size: clamp(1rem, 4vw, 3rem);
+  }
+
+  .brand {
+    font-size: clamp(2rem, 70vw, 45rem);
+    animation: brand 8s infinite ease-out;
+  }
+
+  @keyframes brand {
+    0% { @apply text-primary }
+    25% { @apply text-secondary }
+    50% { @apply text-secondary }
+    100% { @apply text-primary }
+  }
+</style>

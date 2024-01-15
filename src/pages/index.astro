@@ -1,8 +1,82 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
+import Layout from "@Layouts/Layout.astro";
+import Header from "@Components/Header.astro";
+import Banner from "@Components/Banner.astro";
+import Services from "@Components/Services.astro";
 ---
 
-<Layout title="Welcome to Astro." >
+<Layout title="Astraly 🚀 Innovación Digital" >
   <Header />
+  <main class="flex flex-col gap-[10rem]">
+    <div id="bg" class="fixed top-0 left-0 -z-20 w-full h-full">
+      <div id="z-3" class="layer">
+        <div class="tile top-left"></div>
+        <div class="tile top-right"></div>
+        <div class="tile bottom-left"></div>
+        <div class="tile bottom-right"></div>
+      </div>
+      <div id="z-2" class="layer">
+        <div class="tile top-left"></div>
+        <div class="tile top-right"></div>
+        <div class="tile bottom-left"></div>
+        <div class="tile bottom-right"></div>
+      </div>
+      <div id="z-1" class="layer">
+        <div class="tile top-left"></div>
+        <div class="tile top-right"></div>
+        <div class="tile bottom-left"></div>
+        <div class="tile bottom-right"></div>
+      </div>
+    </div>
+    <Banner />
+    <Services />
+  </main>
 </Layout>
+
+<style>
+  .tile {
+    @apply absolute top-0 left-0 w-full h-full bg-repeat overflow-hidden;
+  }
+
+  .layer {
+    @apply absolute top-0 -left-0 w-[150vw] h-[150vh] origin-center;
+  }
+
+  .top-left {
+    background-image: url("topleft.png");
+  }
+
+  .top-right {
+    background-image: url("topright.png");
+  }
+
+  .bottom-left {
+    background-image: url("bottomleft.png");
+  }
+
+  .bottom-right {
+    background-image: url("bottomright.png");
+  }
+</style>
+
+<script>  
+  document.addEventListener("mousemove", function (e) {
+    const z1 = document.getElementById("z-1");
+    const z2 = document.getElementById("z-2");
+    const z3 = document.getElementById("z-3");
+
+    const ratio: number = 0.10;
+
+    let x = e.pageX;
+    let y = e.pageY;
+
+    if (z1 && z2 && z3) {
+      const XRatio = (n: number) => (x * ratio) / n
+      const YRatio = (n: number) => (y * ratio) / n
+
+      z1.style.transform = `translate(${XRatio(1)}px, ${YRatio(1)}px)`;
+      z2.style.transform = `translate(${XRatio(2)}px, ${YRatio(2)}px) rotate(170deg)`;
+      z3.style.transform = `translate(${XRatio(3)}px, ${YRatio(3)}px) rotate(70deg)`;
+    }
+  });
+</script>
